@@ -42,7 +42,7 @@ export default function ChatbotApp() {
     setLoading(true);
 
     try {
-      const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/chat`, {
+      const response = await axios.post(`${import.meta.env.VITE_API_URL}api/chat`, {
         message: text,
         history
       });
