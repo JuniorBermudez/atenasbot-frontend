@@ -1,5 +1,5 @@
 // src/ChatbotApp.jsx
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import { motion } from 'framer-motion';
 
@@ -15,21 +15,7 @@ export default function ChatbotApp() {
   ]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
-  const [history, setHistory] = useState([]);
   const [darkMode, setDarkMode] = useState(false);
-
-  useEffect(() => {
-    const savedHistory = localStorage.getItem('chatHistory');
-    if (savedHistory) {
-      const parsed = JSON.parse(savedHistory);
-      setMessages(parsed.messages);
-      setHistory(parsed.history);
-    }
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem('chatHistory', JSON.stringify({ messages, history }));
-  }, [messages, history]);
 
   const handleSend = async (text) => {
     if (!text.trim()) return;
@@ -39,7 +25,7 @@ export default function ChatbotApp() {
     setLoading(true);
 
     try {
-      const response = await axios.post(`${import.meta.env.VITE_API_URL}ask`, {
+      const response = await axios.post(`${import.meta.env.VITE_API_URL}/ask`, {
         question: text
       });
 
