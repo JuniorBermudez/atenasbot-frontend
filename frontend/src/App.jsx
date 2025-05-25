@@ -14,7 +14,7 @@ const temasRapidos = [
 
 export default function ChatbotApp() {
   const [messages, setMessages] = useState([
-    { sender: 'bot', text: 'Hola 👋 Soy AtenasBot, tu asistente de soporte técnico universitario. ¿En qué puedo ayudarte?' }
+    { sender: 'bot', text: 'Hola 👋 Soy UniBot, tu asistente de soporte técnico universitario. ¿En qué puedo ayudarte?' }
   ]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
