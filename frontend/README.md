@@ -1,33 +1,12 @@
+# React + Vite
 
-# 💻 AtenasBot Frontend
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Este es el frontend para **AtenasBot**, una app de soporte técnico universitario con React + TailwindCSS.
+Currently, two official plugins are available:
 
-## 🚀 Despliegue en Vercel
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-1. Crea una cuenta en [Vercel](https://vercel.com).
-2. Sube este repositorio a GitHub (por ejemplo: `atenasbot-frontend`).
-3. En Vercel, selecciona "New Project" y conecta tu GitHub.
-4. Configura:
+## Expanding the ESLint configuration
 
-   - **Framework**: React
-   - **Build Command**: `npm run build`
-   - **Output Directory**: `build` o automático (si usas CRA)
-
-5. Antes de subir, **modifica la URL del backend en `ChatbotApp.jsx`**:
-   ```js
-   await axios.post('https://TU-BACKEND.onrender.com/api/chat', { ... });
-   ```
-
-6. ¡Listo! Tu app estará online.
-
----
-
-## 🌑 Características
-
-- Modo oscuro / claro
-- Animaciones suaves
-- Temas rápidos (FAQs)
-- Historial en localStorage
-- Estilo moderno y responsive
-
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
