@@ -39,16 +39,21 @@ export default function ChatbotApp() {
     setLoading(true);
 
     try {
-      const response = await axios.post(`${import.meta.env.VITE_API_URL}api/chat`, {
-        message: text,
-        history
+      const response = await axios.post(`${import.meta.env.VITE_API_URL}ask`, {
+        question: text
       });
-      const botMessage = { sender: 'bot', text: response.data.reply };
-      setHistory(response.data.history);
+
+      const botMessage = { sender: 'bot', text: response.data.answer };
       setMessages(prev => [...prev, botMessage]);
+
     } catch (err) {
-      setMessages(prev => [...prev, { sender: 'bot', text: 'Lo siento, hubo un error al procesar tu mensaje.' }]);
+      console.error('Error al contactar al backend:', err);
+      setMessages(prev => [...prev, {
+        sender: 'bot',
+        text: 'Lo siento, hubo un error al procesar tu mensaje.'
+      }]);
     }
+
     setLoading(false);
   };
 
@@ -56,7 +61,7 @@ export default function ChatbotApp() {
     <div className={`${darkMode ? 'bg-gray-900 text-white' : 'bg-gray-100 text-black'} min-h-screen flex flex-col items-center p-4 transition-colors`}>
       <div className="w-full max-w-xl bg-white dark:bg-gray-800 rounded-2xl shadow-md p-4 flex flex-col space-y-4">
         <div className="flex justify-between items-center">
-          <h1 className="text-2xl font-bold text-center">⚡ UniBot - Soporte Técnico</h1>
+          <h1 className="text-2xl font-bold text-center">⚡ AtenasBot - Soporte Técnico</h1>
           <button
             onClick={() => setDarkMode(!darkMode)}
             className="text-sm bg-gray-200 dark:bg-gray-600 px-2 py-1 rounded-lg"
